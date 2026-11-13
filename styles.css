@@ -1,0 +1,149 @@
+/*
+ * Spoke & Chain's catalog page.
+ *
+ * Everything down to the line "Yours: cards that fit their space" is ready: the colors, the fonts, the page layout
+ * and the card's stacked look. The page layout uses media queries, and that's the right tool for it: the sidebar
+ * moves beside the main area when the SCREEN is wide enough.
+ *
+ * Your work, below that line (the README says the same):
+ *   1. Make every .card-spot a container that measures its width (inline-size), named bike-spot.
+ *   2. Delete the media query marked "The problem" and write an @container rule for bike-spot that puts the
+ *      card's photo and words side by side, with grid-template-columns, once its spot is wide enough
+ *      (somewhere from 26rem to 34rem).
+ *   3. Write a second, wider @container rule for bike-spot (at least 8rem wider than the first) that gives the
+ *      card in a wide spot its own look, after the first rule.
+ *   4. Give .bike-card-title a fluid size with clamp(): a minimum and a maximum in rem, and a preferred size that
+ *      mixes rem and cqi, so the title grows with its card's space.
+ */
+
+/* Ready: colors and fonts */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.5;
+  color: #23262b;
+  background-color: #f6f4ef;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+}
+
+.site-header {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: #ffffff;
+  background-color: #2b3a4a;
+}
+
+.logo {
+  margin: 0;
+  font-size: 2.25rem;
+}
+
+.tagline {
+  margin: 0.25rem 0 0;
+}
+
+.site-footer {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* Ready: the page layout, mobile first. One column on a phone; more columns as the screen gets wider. */
+
+.page {
+  display: grid;
+  gap: 2rem;
+  width: min(75rem, 100% - 2rem);
+  margin: 2rem auto;
+}
+
+.catalog {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 40rem) {
+  .catalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 60rem) {
+  .page {
+    grid-template-columns: 1fr 18rem;
+  }
+
+  .catalog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ready: the card, stacked. The photo is on top and the words are below it. */
+
+.bike-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #d9d4c7;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.bike-card-photo {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.bike-card-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.bike-card-type {
+  margin: 0;
+  color: #5d6470;
+}
+
+.bike-card-price {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #b8501a;
+}
+
+.bike-card-blurb {
+  margin: 0 0 1rem;
+}
+
+.bike-card-button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-radius: 999px;
+  color: #ffffff;
+  background-color: #2b3a4a;
+  text-decoration: none;
+}
+
+/* The problem: this media query asks how wide the SCREEN is. On a wide screen it puts every card side by side,
+   even the staff pick squeezed into the 18rem sidebar and the cards in the catalog's narrow columns.
+   Delete it, and use container queries instead. */
+@media (min-width: 60rem) {
+  .bike-card {
+    grid-template-columns: 2fr 3fr;
+    align-items: center;
+  }
+}
+
+/* Yours: cards that fit their space */
+

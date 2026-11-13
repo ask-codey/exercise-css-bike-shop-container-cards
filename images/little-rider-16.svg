@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Little Rider 16">
+  <rect width="400" height="260" fill="#f3edfa"/>
+  <g fill="none" stroke="#2b2b2b" stroke-width="10">
+    <circle cx="105" cy="170" r="62"/>
+    <circle cx="295" cy="170" r="62"/>
+  </g>
+  <g fill="none" stroke="#7a4fb3" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M105 170 L175 92 L265 92 L205 170 Z"/>
+    <path d="M175 92 L160 64"/>
+    <path d="M265 92 L295 170"/>
+    <path d="M258 74 L272 110"/>
+  </g>
+  <g stroke="#2b2b2b" stroke-width="10" stroke-linecap="round">
+    <path d="M140 60 L182 60"/>
+    <path d="M250 70 L285 62"/>
+  </g>
+</svg>
